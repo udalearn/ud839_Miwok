@@ -17,8 +17,13 @@ package com.example.android.miwok;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.GridView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
+import com.example.android.miwok.WordAdapter;
 
 import java.util.ArrayList;
 
@@ -30,8 +35,24 @@ public class NumbersActivity extends AppCompatActivity {
         setContentView(R.layout.activity_numbers);
 
         //Create an array list of words for the Numbers activity
-        ArrayList<String> wordNumbers = new ArrayList<String>();
-        wordNumbers.add("one");
+        //Original ArrayList
+        ArrayList<Word> wordNumbers = new ArrayList<Word>();
+
+
+        //Populate our ArrayList with our new object
+        wordNumbers.add(new Word("one", "lutti"));
+        wordNumbers.add(new Word("two", "otiko"));
+        wordNumbers.add(new Word("three", "tolookosu"));
+        wordNumbers.add(new Word("four", "oyyisa"));
+        wordNumbers.add(new Word("five", "massoka"));
+        wordNumbers.add(new Word("six", "temmokka"));
+        wordNumbers.add(new Word("seven", "kenekaku"));
+        wordNumbers.add(new Word("eight", "kawinta"));
+        wordNumbers.add(new Word("nine", "wo'e"));
+        wordNumbers.add(new Word("ten", "na'aacha"));
+
+        //Original ArrayList Values
+/*        wordNumbers.add("one");
         wordNumbers.add("two");
         wordNumbers.add("three");
         wordNumbers.add("four");
@@ -40,12 +61,25 @@ public class NumbersActivity extends AppCompatActivity {
         wordNumbers.add("seven");
         wordNumbers.add("eight");
         wordNumbers.add("nine");
-        wordNumbers.add("ten");
+        wordNumbers.add("ten");*/
 
-        //Find the root view of the whole layout
-        LinearLayout rootView = (LinearLayout) findViewById(R.id.root_view);
+/*        //Find the root view of the whole layout
+        LinearLayout rootView = (LinearLayout) findViewById(R.id.root_view);*/
 
-        int i = 0;
+//        ArrayAdapter<String> itemsAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, wordNumbers);
+/*        ArrayAdapter<String> itemsAdapter = new ArrayAdapter<String>(this, R.layout.list_item, wordNumbers);*/
+
+        WordAdapter<Word> wordAdapter = new WordAdapter(this, wordNumbers);
+
+        ListView listView = (ListView) findViewById(R.id.list);
+
+/*
+        listView.setAdapter(itemsAdapter);
+*/
+
+        listView.setAdapter(wordAdapter);
+
+/*        int i = 0;
         while(i < wordNumbers.size()){
             TextView wordView = new TextView(this);
             wordView.setText(wordNumbers.get(i));
@@ -57,7 +91,7 @@ public class NumbersActivity extends AppCompatActivity {
             TextView wordView = new TextView(this);
             wordView.setText(wordNumbers.get(j));
             rootView.addView(wordView);
-        }
+        }*/
 
         //LinearLayout rootView = (LinearLayout) findViewById(R.id.root_view);
         //TextView wordView = new TextView(this);
