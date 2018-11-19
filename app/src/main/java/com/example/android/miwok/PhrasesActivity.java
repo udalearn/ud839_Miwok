@@ -17,6 +17,9 @@ package com.example.android.miwok;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.ListView;
+
+import java.util.ArrayList;
 
 public class PhrasesActivity extends AppCompatActivity {
 
@@ -24,5 +27,89 @@ public class PhrasesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_phrases);
+
+
+        ArrayList<Word> words = new ArrayList<Word>();
+
+        words.add(new Word("Where are you going?", "minto wuksus"));
+        words.add(new Word("What is your name?", "tinnә oyaase'nә"));
+        words.add(new Word("My name is...", "oyaaset..."));
+        words.add(new Word("How are you feeling?", "michәksәs?"));
+        words.add(new Word("I’m feeling good.", "kuchi achit"));
+        words.add(new Word("Are you coming?", "әәnәs'aa?"));
+        words.add(new Word("Yes, I’m coming.", "hәә’ әәnәm"));
+        words.add(new Word("I’m coming.", "әәnәm"));
+        words.add(new Word("Let’s go.", "yoowutis"));
+        words.add(new Word("Come here.", "әnni'nem"));
+
+        /*        // Create a list of words
+        ArrayList<String> words = new ArrayList<String>();
+        words.add("one");
+        words.add("two");
+        words.add("three");
+        words.add("four");
+        words.add("five");
+        words.add("six");
+        words.add("seven");
+        words.add("eight");
+        words.add("nine");
+        words.add("ten");*/
+
+        WordAdapter itemsAdapter =
+                new WordAdapter(this, words);
+
+/*        // Create an {@link ArrayAdapter}, whose data source is a list of Strings. The
+        // adapter knows how to create layouts for each item in the list, using the
+        // simple_list_item_1.xml layout resource defined in the Android framework.
+        // This list item layout contains a single {@link TextView}, which the adapter will set to
+        // display a single word.
+        ArrayAdapter<Word> itemsAdapter =
+                new ArrayAdapter<Word>(this, R.layout.list_item, words);*/
+
+        // Find the {@link ListView} object in the view hierarchy of the {@link Activity}.
+        // There should be a {@link ListView} with the view ID called list, which is declared in the
+        // activity_numbers.xml layout file.
+        ListView listView = (ListView) findViewById(R.id.list_phrases);
+
+        // Make the {@link ListView} use the {@link ArrayAdapter} we created above, so that the
+        // {@link ListView} will display list items for each word in the list of words.
+        // Do this by calling the setAdapter method on the {@link ListView} object and pass in
+        // 1 argument, which is the {@link ArrayAdapter} with the variable name itemsAdapter.
+        listView.setAdapter(itemsAdapter);
+
+        /*        //Create an array list of words for the Numbers activity
+        ArrayList<String> wordNumbers = new ArrayList<String>();
+        wordNumbers.add("one");
+        wordNumbers.add("two");
+        wordNumbers.add("three");
+        wordNumbers.add("four");
+        wordNumbers.add("five");
+        wordNumbers.add("six");
+        wordNumbers.add("seven");
+        wordNumbers.add("eight");
+        wordNumbers.add("nine");
+        wordNumbers.add("ten");
+
+        //Find the root view of the whole layout
+        LinearLayout rootView = (LinearLayout) findViewById(R.id.root_view);
+
+        int i = 0;
+        while(i < wordNumbers.size()){
+            TextView wordView = new TextView(this);
+            wordView.setText(wordNumbers.get(i));
+            rootView.addView(wordView);
+            i++;
+        }
+
+        for(int j = 0; j < wordNumbers.size(); j++){
+            TextView wordView = new TextView(this);
+            wordView.setText(wordNumbers.get(j));
+            rootView.addView(wordView);
+        }
+
+        //LinearLayout rootView = (LinearLayout) findViewById(R.id.root_view);
+        //TextView wordView = new TextView(this);
+        //wordView.setText(wordNumbers.get(0));
+        //rootView.addView(wordView);*/
     }
 }
