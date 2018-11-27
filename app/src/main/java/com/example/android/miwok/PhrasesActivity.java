@@ -56,7 +56,7 @@ public class PhrasesActivity extends AppCompatActivity {
         words.add("ten");*/
 
         WordAdapter itemsAdapter =
-                new WordAdapter(this, words);
+                new WordAdapter(this, words, R.color.category_phrases);
 
 /*        // Create an {@link ArrayAdapter}, whose data source is a list of Strings. The
         // adapter knows how to create layouts for each item in the list, using the
@@ -67,8 +67,6 @@ public class PhrasesActivity extends AppCompatActivity {
                 new ArrayAdapter<Word>(this, R.layout.list_item, words);*/
 
         // Find the {@link ListView} object in the view hierarchy of the {@link Activity}.
-        // There should be a {@link ListView} with the view ID called list, which is declared in the
-        // activity_numbers.xml layout file.
         ListView listView = (ListView) findViewById(R.id.list_all);
 
         // Make the {@link ListView} use the {@link ArrayAdapter} we created above, so that the
