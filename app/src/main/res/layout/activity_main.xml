@@ -23,7 +23,12 @@
     android:orientation="vertical"
     tools:context="com.example.android.miwok.MainActivity">
 
-    <FrameLayout
+    <android.support.v4.view.ViewPager
+        android:id="@+id/main_view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </android.support.v4.view.ViewPager>
+<!--    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/category_numbers">
@@ -66,6 +71,6 @@
         style="@style/CategoryStyle"
         android:background="?android:attr/selectableItemBackground"
         android:text="@string/category_phrases" />
-    </FrameLayout>
+    </FrameLayout>-->
 
 </LinearLayout>
