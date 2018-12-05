@@ -1,13 +1,17 @@
 package com.example.android.miwok;
 
+import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 public class MainFragmentPagerAdapter extends FragmentPagerAdapter {
 
-    public MainFragmentPagerAdapter(FragmentManager fm){
+    private Context mContext;
+
+    public MainFragmentPagerAdapter(Context context, FragmentManager fm){
         super(fm);
+        mContext = context;
     }
 
     @Override
@@ -27,4 +31,18 @@ public class MainFragmentPagerAdapter extends FragmentPagerAdapter {
     public int getCount() {
         return 4;
     }
+
+    @Override
+    public CharSequence getPageTitle(int position) {
+        if (position == 0) {
+            return "Numbers";
+        } else if (position == 1) {
+            return "Family";
+        } else if (position == 2) {
+            return "Colors";
+        } else {
+            return "Phrases";
+        }
+    }
+
 }

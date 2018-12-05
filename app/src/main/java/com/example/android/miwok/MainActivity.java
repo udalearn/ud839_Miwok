@@ -17,6 +17,7 @@ package com.example.android.miwok;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -37,11 +38,14 @@ public class MainActivity extends AppCompatActivity {
         ViewPager mViewPager = (ViewPager) findViewById(R.id.main_view_pager);
 
         // Create an adapter that knows which fragments the user should see on each page
-        MainFragmentPagerAdapter mainAdapter = new MainFragmentPagerAdapter(getSupportFragmentManager());
+        MainFragmentPagerAdapter mainAdapter = new MainFragmentPagerAdapter(this, getSupportFragmentManager());
 
         // Set the adapter onto the view pager
         mViewPager.setAdapter(mainAdapter);
 
+        //Add the TabLayout ro the ViewPager.
+        TabLayout mTabLayout = (TabLayout) findViewById(R.id.main_tabs);
+        mTabLayout.setupWithViewPager(mViewPager);
 
 
 
